@@ -20,7 +20,7 @@
   <body>
     <nav class="site-nav navbar navbar-expand-md navbar-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="#page-hero">
           <i class="fa fa-apple" aria-hidden="true"></i>
           Awesome Apple
         </a>
@@ -39,15 +39,34 @@
 
         <section class="collapse navbar-collapse" id="nav">
           <div class="navbar-nav ml-auto text-uppercase">
-            <a href="#page-hero" class="nav-item nav-link">Awesome Apple</a>
-            <a href="#meet" class="nav-item nav-link">Meet</a>
-            <a href="#types" class="nav-item nav-link">Types</a>
-            <a href="#friend" class="nav-item nav-link">Friend</a>
-            <a href="#buy" class="nav-item nav-link">Buy</a>
+            <a href="#page-hero" class="nav-item nav-link mx-2"
+              >Awesome Apple</a
+            >
+            <a href="#meet" class="nav-item nav-link mx-2">Meet</a>
+            <a href="#types" class="nav-item nav-link mx-2">Types</a>
+            <a href="#friend" class="nav-item nav-link mx-2">Friend</a>
+            <a href="#buy" class="nav-item nav-link mx-2">Buy</a>
           </div>
         </section>
       </div>
     </nav>
+    <header id="page-hero" class="site-header">
+      <section class="layout-hero d-flex flex-column flex-fill min-vh-100">
+        <div class="header-content d-flex flex-column flex-fill">
+          <div
+            class="container text-center d-flex flex-column justify-content-center align-items-center flex-fill"
+          >
+            <h1 class="header-title display-3 font-weight-bold">
+              Awesome Apples
+            </h1>
+            <p class="header-subtitle font-weight-lighter lead">
+              Praesent sapien massa, convallis a pellentesque nec, egestas non
+              nisi. Cras ultricies ligula sed magna dictum porta.
+            </p>
+          </div>
+        </div>
+      </section>
+    </header>
     <!-- jquery-->
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <!-- propper-->
