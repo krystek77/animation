@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;800&family=Oswald:wght@300;400;700&display=swap');
 :root {
-  /* --blue: #007bff;
+  --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
   --pink: #e83e8c;
@@ -30,7 +30,7 @@
     'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace; */
+    'Liberation Mono', 'Courier New', monospace;
   --font-family-sans-serif: 'Oswald', sans-serif;
   --font-family-header: 'Open Sans', sans-serif;
   --dark: #2e2e2e;
@@ -56,8 +56,8 @@ p {
 .site-nav {
   position: fixed;
   z-index: 100;
-  /* background: var(--red); */
 }
+
 .site-header {
   position: relative;
   height: 100vh;
@@ -102,6 +102,8 @@ p {
   opacity: 0;
   overflow: hidden;
   animation: clear 1s 0.5s forwards;
+  position: absolute;
+  bottom: 0;
 }
 .site-header .header-cue-icon {
   /* transform: translateY(-150%);
@@ -129,6 +131,22 @@ p {
   opacity: 1;
 }
 
+.site-nav.with-background {
+  background: var(--red);
+  opacity: 0;
+  box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.8);
+  animation: clear 1s ease-out forwards;
+}
+#apple-group .apple.inViewport {
+  opacity: 0;
+  transform: scale(1.1);
+  animation: clear 0.8s ease-in-out forwards;
+}
+
+#types .type-img {
+  max-width: 100%;
+  margin: 0 auto;
+}
 @keyframes slideDown {
   from {
     transform: translateY(-150%);
