@@ -38,6 +38,9 @@
   --dark-blue: #0557af;
 }
 /* own styles */
+html {
+  scroll-behavior: smooth;
+}
 body {
   color: var(--dark);
   font-family: var(--font-family-sans-serif);
