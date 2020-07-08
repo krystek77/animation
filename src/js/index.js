@@ -31,8 +31,15 @@
 
     }
     move();
-    
-
+    const controller = new ScrollMagic.Controller();
+    new ScrollMagic.Scene({
+        triggerElement: '#friend',
+        triggerHook: 0,
+        offset: -80,
+        // duration: 400,
+        reverse: false
+    }).setClassToggle('.friend-text', 'inViewport')
+        .addIndicators({ name: "friend" }).addTo(controller);
 })()
 
 
