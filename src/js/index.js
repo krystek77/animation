@@ -31,15 +31,70 @@
 
     }
     move();
+    //scroll magic library
     const controller = new ScrollMagic.Controller();
+    let friendTextTween = gsap.from('.friend-text', {
+        y: 400,
+        opacity: 0,
+        duration: 2,
+        ease: 'ease.inOut'
+    });
+    console.log(friendTextTween)
     new ScrollMagic.Scene({
         triggerElement: '#friend',
+        // triggerHook: 0,
+        // offset: -80,
+        // // duration: 400,
+        // reverse: false
+    })
+        .setTween(friendTextTween)
+        .addIndicators({ name: "friend" })
+        .addTo(controller);
+    //gsap library
+    let parachuteTween = new TimelineMax();
+    parachuteTween
+        .from('#parachute', {
+            x: "100%",
+            y: "-200%",
+            rotation: -40,
+            scale: .5,
+            opacity: 0
+        })
+        .to('#parachute', {
+            x: "30%",
+            y: "20%",
+            rotation: -40,
+        })
+        .to('#parachute', {
+            x: "-80%",
+            y: "450%",
+            rotation: -40,
+        })
+    let parachuteScene = new ScrollMagic.Scene({
+        triggerElement: "#friend",
+        // duration: "170%",
+        triggerHook: 0
+    })
+        .setTween(parachuteTween)
+        .addIndicators({ name: "parachute" })
+        .addTo(controller)
+
+    let types = new TimelineMax();
+    types.from('.type', {
+        opacity: 0.25,
+        scale: 0.9,
+        stagger: 0.25
+    })
+
+    new ScrollMagic.Scene({
+        triggerElement: "#types",
         triggerHook: 0,
-        offset: -80,
-        // duration: 400,
-        reverse: false
-    }).setClassToggle('.friend-text', 'inViewport')
-        .addIndicators({ name: "friend" }).addTo(controller);
+        duration: 300
+    }).setPin("#types")
+        .setTween(types)
+        .addIndicators({ name: "type" })
+        .addTo(controller)
+
 })()
 
 

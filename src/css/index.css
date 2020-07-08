@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;800&family=Oswald:wght@300;400;700&display=swap');
 :root {
-  --blue: #007bff;
+  /* --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
   --pink: #e83e8c;
@@ -30,7 +30,7 @@
     'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace;
+    'Liberation Mono', 'Courier New', monospace; */
   --font-family-sans-serif: 'Oswald', sans-serif;
   --font-family-header: 'Open Sans', sans-serif;
   --dark: #2e2e2e;
@@ -142,8 +142,12 @@ p {
   transform: scale(0.9);
   animation: clear 0.8s ease-in-out forwards;
 }
-.friend-text {
+
+/* .friend-text {
   opacity: 0;
+} */
+.page-section {
+  overflow: hidden;
 }
 #types .type-img {
   max-width: 100%;
