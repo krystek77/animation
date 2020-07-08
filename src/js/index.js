@@ -48,7 +48,7 @@
         // reverse: false
     })
         .setTween(friendTextTween)
-        .addIndicators({ name: "friend" })
+        // .addIndicators({ name: "friend" })
         .addTo(controller);
     //gsap library
     let parachuteTween = new TimelineMax();
@@ -76,24 +76,32 @@
         triggerHook: 0
     })
         .setTween(parachuteTween)
-        .addIndicators({ name: "parachute" })
+        // .addIndicators({ name: "parachute" })
         .addTo(controller)
 
-    let types = new TimelineMax();
-    types.from('.type', {
-        opacity: 0.25,
-        scale: 0.9,
-        stagger: 0.25
-    })
+   
 
-    new ScrollMagic.Scene({
-        triggerElement: "#types",
-        triggerHook: 0,
-        duration: 300
-    }).setPin("#types")
-        .setTween(types)
-        .addIndicators({ name: "type" })
-        .addTo(controller)
+    //scene...
+    // const svg = document.getElementById("scene-image");
+    const scene = document.getElementById("scene");
+    const [shadow, sky, moon, earth, ring, tshirt, person] = [...scene.children];
+
+    gsap.set([shadow, ...sky.children, moon, earth, ring, tshirt, person], { autoAlpha: 0 });
+
+
+    gsap.set(earth, { transformOrigin: '50% 50%' });
+    gsap.set(earth.children, { transformOrigin: '50% 50%' });
+    gsap.set(moon, { transformOrigin: '50% 50%' });
+    const timeline = gsap.timeline({ defaults: { ease: "power3.inOut" } });
+    timeline.fromTo([person, tshirt], { x: '+=500' }, { duration: 2, x: '-=500', autoAlpha: 1 })
+    timeline.fromTo(shadow, { x: '+=500' }, { duration: 2, x: '-=500', autoAlpha: 1 }, '-=1')
+    timeline.to(tshirt.children[0], { duration: 0.3, fill: '#d39e00', autoAlpha: 1 })
+    timeline.to(sky.children, { duration: 1, autoAlpha: 1, stagger: 0.3 })
+    timeline.fromTo(earth, { y: '-=500px' }, { y: '+=500', duration: 0.8, autoAlpha: 1 })
+    timeline.to(earth, { duration: 6, repeat: -1, rotation: '360', ease: 'none' });
+    timeline.to(earth.children, { duration: 3, repeat: -1, rotation: '360', ease: 'none', stagger: 0.3 })
+    timeline.to(ring, { duration: 0.5, autoAlpha: 1 }, '-=5');
+    timeline.to(moon, { duration: 3, rotation: '360', ease: 'none', autoAlpha: 1, repeat: -1 });
 
 })()
 
