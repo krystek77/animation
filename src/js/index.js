@@ -79,10 +79,11 @@
         // .addIndicators({ name: "parachute" })
         .addTo(controller)
 
-   
+
 
     //scene...
     // const svg = document.getElementById("scene-image");
+
     const scene = document.getElementById("scene");
     const [shadow, sky, moon, earth, ring, tshirt, person] = [...scene.children];
 
@@ -99,9 +100,19 @@
     timeline.to(sky.children, { duration: 1, autoAlpha: 1, stagger: 0.3 })
     timeline.fromTo(earth, { y: '-=500px' }, { y: '+=500', duration: 0.8, autoAlpha: 1 })
     timeline.to(earth, { duration: 6, repeat: -1, rotation: '360', ease: 'none' });
-    timeline.to(earth.children, { duration: 3, repeat: -1, rotation: '360', ease: 'none', stagger: 0.3 })
     timeline.to(ring, { duration: 0.5, autoAlpha: 1 }, '-=5');
+    timeline.to(earth.children, { duration: 3, repeat: -1, rotation: '360', ease: 'none', stagger: 0.3 })
     timeline.to(moon, { duration: 3, rotation: '360', ease: 'none', autoAlpha: 1, repeat: -1 });
+
+
+
+    new ScrollMagic.Scene({
+        triggerElement: '#earth',
+        triggerHook: 0,
+    })
+        .setTween(timeline)
+        .addIndicators({ name: "earth" })
+        .addTo(controller);
 
 })()
 
